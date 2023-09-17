@@ -170,7 +170,7 @@ int main() {
 		//PORT A Masking and don't mess with other ports
 		//Enable PA0 ,Turn off all Other Used PortA , 7Seg No.6 Enable
 
-		PORTA = (PORTA & 0X80) | Sec1EN;
+		PORTA = (PORTA & 0XC0) | Sec1EN;
 		/* Now Begin to Show First Second By Port C
 		 * Our Objective is to divide a Tenth number into to digits
 		 * Example No.53
@@ -183,19 +183,19 @@ int main() {
 		 */
 		PORTC = (PORTC & 0XF0) | (second % 10);
 		_delay_us(3);
-		PORTA = (PORTA & 0X80) | Sec2EN;
+		PORTA = (PORTA & 0XC0) | Sec2EN;
 		PORTC = (PORTC & 0XF0) | (second / 10);
 		_delay_us(3);
-		PORTA = (PORTA & 0X80) | Min1EN;
+		PORTA = (PORTA & 0XC0) | Min1EN;
 		PORTC = (PORTC & 0XF0) | (min % 10);
 		_delay_us(3);
-		PORTA = (PORTA & 0X80) | Min2EN;
+		PORTA = (PORTA & 0XC0) | Min2EN;
 		PORTC = (PORTC & 0XF0) | (min / 10);
 		_delay_us(3);
-		PORTA = (PORTA & 0X80) | Hr1EN;
+		PORTA = (PORTA & 0XC0) | Hr1EN;
 		PORTC = (PORTC & 0XF0) | (hour % 10);
 		_delay_us(3);
-		PORTA = (PORTA & 0X80) | Hr2EN;
+		PORTA = (PORTA & 0XC0) | Hr2EN;
 		PORTC = (PORTC & 0XF0) | (hour / 10);
 		_delay_us(3);
 
